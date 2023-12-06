@@ -6,9 +6,9 @@ class AnimalsController < ApplicationController
     end
 
     def show
-        animal = Animal.find(params[:id])
+        animal = Animal.find_by(id: params[:id])
         if animal.valid?
-            render json: animal
+            render json: animal, include: [:sightings]
         else
             render json: animal.errors
         end
