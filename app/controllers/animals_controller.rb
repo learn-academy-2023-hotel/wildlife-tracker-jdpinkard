@@ -1,8 +1,8 @@
 class AnimalsController < ApplicationController
 
     def index
-        animals = Animal.where(date: params[:start_date]..params[:end_date])
-        render json: animals, include: [:sightings]
+        animals = Animal.all
+        render json: animals
     end
 
     def show
